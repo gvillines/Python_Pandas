@@ -1,0 +1,16 @@
+pip install openpyxl
+#install the openpyx1 if you haven't already done so
+
+import pandas as pd
+
+# Create a DataFrame with missing values
+data = {'A': [1, 2, None, 4],
+        'B': [5, None, 7, 8]}
+df = pd.DataFrame(data)
+
+# Fill missing values with a specific value (e.g., 0)
+cleaned_df = df.fillna(0)
+
+# Save the cleaned DataFrame to an Excel file
+cleaned_df.to_excel('cleaned_data.xlsx', index=False)
+
