@@ -1,0 +1,23 @@
+import pandas as pd
+import sqlite3
+
+# Connect to the SQL database
+conn = sqlite3.connect('your_database.db')
+
+# Load data from a SQL table into a pandas DataFrame
+query = "SELECT * FROM your_table"
+df = pd.read_sql_query(query, conn)
+
+# Data Cleaning Steps
+# For example, removing rows with NULL values in a specific column
+cleaned_df = df.dropna(subset=['column_name'])
+
+# Perform other data cleaning tasks here
+
+# Save the cleaned DataFrame back to the SQL database
+cleaned_df.to_sql('cleaned_table', conn, if_exists='replace', index=False)
+
+# Close the database connection
+conn.close()
+
+#python code for using pandas to clean SQL data
